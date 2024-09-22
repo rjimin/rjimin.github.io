@@ -1,7 +1,7 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./StartupProjects.scss";
-import {bigProjects} from "../../portfolio";
-import {Fade} from "react-reveal";
+import { bigProjects } from "../../portfolio";
+import { Fade } from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function StartupProject() {
@@ -13,7 +13,7 @@ export default function StartupProject() {
     win.focus();
   }
 
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
   if (!bigProjects.display) {
     return null;
   }
@@ -24,9 +24,7 @@ export default function StartupProject() {
           <h1 className="skills-heading">{bigProjects.title}</h1>
           <p
             className={
-              isDark
-                ? "dark-mode project-subtitle"
-                : "subTitle project-subtitle"
+              isDark ? "dark-mode project-subtitle" : "subTitle project-subtitle"
             }
           >
             {bigProjects.subtitle}
@@ -43,7 +41,20 @@ export default function StartupProject() {
                       : "project-card project-card-light"
                   }
                 >
-                  {project.image ? (
+                  {project.video ? (
+                    <div className="project-video">
+                      <video
+                        controls
+                        src={project.video}
+                        alt={project.projectName}
+                        className="card-video"
+                        width="100%"
+                        height="auto"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  ) : project.image ? (
                     <div className="project-image">
                       <img
                         src={project.image}
