@@ -66,7 +66,7 @@ https://fontawesome.com/icons?d=gallery */
   softwareSkills: [
     {
       skillName: "Golang",
-      fontAwesomeClassname: "fab fa-google"
+      fontAwesomeClassname: "fab fa-golang"
     },
     {
       skillName: "Python",
@@ -78,15 +78,15 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "C",
-      fontAwesomeClassname: "far fa-folder"
+      fontAwesomeClassname: "fas fa-c"
     },
     {
       skillName: "C++",
-      fontAwesomeClassname: "far fa-folder"
+      fontAwesomeClassname: "fas fa-file-code"
     },
     {
       skillName: "C#",
-      fontAwesomeClassname: "far fa-folder"
+      fontAwesomeClassname: "fas fa-file-code"
     },
     {
       skillName: "JavaScript",
@@ -98,7 +98,7 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "Haskell",
-      fontAwesomeClassname: "far fa-folder"
+      fontAwesomeClassname: "fas fa-file"
     },
     {
       skillName: "AWS",
