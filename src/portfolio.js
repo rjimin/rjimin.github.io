@@ -215,13 +215,25 @@ const bigProjects = {
   projects: [
     {
       video: require("./assets/videos/fps.mp4"),
-      projectName: "FPS game",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      projectName: "3D VR FPS game",
+      // projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       // footerLink: [
       //   {
       //     name: "GitHub",
       //     url: "https://github.com/rjimin/BrisHack"
       //   }
+      // ]
+    },
+    {
+      image: require("./assets/images/ibm.png"),
+      projectName: "Edutopia",
+      projectDesc: "Map-based city-building combat game, enhancing engagement and promoting student involvement in IBM SkillsBuild",
+      // footerLink: [
+      //   {
+      //     name: "GitHub",
+      //     url: "https://github.com/rjimin/EncodeAI"
+      //   }
+      //   //  you can add extra buttons here.
       // ]
     },
     {
@@ -239,7 +251,7 @@ const bigProjects = {
     {
       image: require("./assets/images/moodtracker.gif"),
       projectName: "Mood Tracker",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      projectDesc: "Emotion-tracking platform",
       footerLink: [
         {
           name: "GitHub",
@@ -250,7 +262,7 @@ const bigProjects = {
     {
       image: require("./assets/images/contaminatedworld.png"),
       projectName: "Contaminated World",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      projectDesc: "Platform game set in a mystery-contaminated world",
       footerLink: [
         {
           name: "GitHub",
