@@ -86,7 +86,7 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "C#",
-      fontAwesomeClassname: "fas fa-file-code"
+      fontAwesomeClassname: "fas fa-hashtag"
     },
     {
       skillName: "JavaScript",
@@ -98,7 +98,7 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "Haskell",
-      fontAwesomeClassname: "fas fa-file"
+      fontAwesomeClassname: "fas fa-code"
     },
     {
       skillName: "AWS",
