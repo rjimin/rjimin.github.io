@@ -7,6 +7,14 @@
 
 /* header */
 
+.header .logo-name {
+  color: #3F50B7;
+}
+
+.dark-menu .logo-name {
+  color: $textColorDark;
+}
+
 .dark-menu {
   background-color: $darkBackground !important;
   color: $textColorDark;
