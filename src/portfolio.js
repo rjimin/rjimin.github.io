@@ -25,8 +25,7 @@ const greeting = {
   subTitle: emoji(
     "Proactive problem solver with strong communication skills, thriving in collaborative environments. Driven by creative solutions and a commitment to delivering high-quality results."
   ),
-  resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
+  resumeLink: true,
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -163,12 +162,12 @@ const workExperiences = {
       companylogo: require("./assets/images/hyusimpleLogo.png"),
       date: "July 2024 – Sep 2024",
       desc: "Contributed to research and development projects focused on reducing cybersickness and enhancing VR experiences.",
-      descBullets: [
-        "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
-        "Conducted a comprehensive literature review, participated in experiment design, data collection, and statistical analysis.",
-        "Reviewed and revised the thesis based on iterative feedback, and created supplementary materials to support it.",
-        "Led a seminar to present research findings and methodologies to peers."
-      ]
+      // descBullets: [
+      //   "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
+      //   "Conducted a comprehensive literature review, participated in experiment design, data collection, and statistical analysis.",
+      //   "Reviewed and revised the thesis based on iterative feedback, and created supplementary materials to support it.",
+      //   "Led a seminar to present research findings and methodologies to peers."
+      // ]
     },
     {
       role: "Co-creator",
@@ -176,11 +175,11 @@ const workExperiences = {
       companylogo: require("./assets/images/uobLogorm.png"),
       date: "Oct 2023 – Mar 2024",
       desc: "Facilitated specialized workshops to support intersectionally disadvantaged students, focusing on creating an inclusive and liberatory university environment.",
-      descBullets: [
-        "Tailored workshop content to address the specific challenges faced by disadvantaged students.",
-        "Led mentor sessions, emphasizing the understanding of intersectionality and microaggressions.",
-        "Collaborated with peers to enhance workshop effectiveness and relevance."
-        ]
+      // descBullets: [
+      //   "Tailored workshop content to address the specific challenges faced by disadvantaged students.",
+      //   "Led mentor sessions, emphasizing the understanding of intersectionality and microaggressions.",
+      //   "Collaborated with peers to enhance workshop effectiveness and relevance."
+      //   ]
     },
     {
       role: "UX Research Assistant",
@@ -188,12 +187,12 @@ const workExperiences = {
       companylogo: require("./assets/images/globalresearchLogo.png"),
       date: "Jul 2023 – Sep 2023",
       desc: "Conducted software testing and user experience research to ensure seamless operations and align platform design with user needs.",
-      descBullets: [
-        "Analyzed and prioritized platform UI/UX designs for optimal user experience.",
-        "Performed user research using diverse methodologies to inform development.",
-        "Created data visualizations to facilitate data-driven decision-making.",
-        "Researched AI applications, assessing their impact on usability and future trends."
-        ]
+      // descBullets: [
+      //   "Analyzed and prioritized platform UI/UX designs for optimal user experience.",
+      //   "Performed user research using diverse methodologies to inform development.",
+      //   "Created data visualizations to facilitate data-driven decision-making.",
+      //   "Researched AI applications, assessing their impact on usability and future trends."
+      //   ]
     },
     {
       role: "Database Assistant",
@@ -201,11 +200,11 @@ const workExperiences = {
       companylogo: require("./assets/images/ktcLogo.png"),
       date: "Jan 2022 – Sep 2022",
       desc: "Responsible for maintaining and optimizing company databases, ensuring data accuracy, and enhancing data processing efficiency.",
-      descBullets: [
-        "Streamlined data analysis using advanced Excel techniques.",
-        "Collaborated with team members to tailor Excel functions to specific data needs.",
-        "Ensured database integrity by promptly resolving issues."
-      ]
+      // descBullets: [
+      //   "Streamlined data analysis using advanced Excel techniques.",
+      //   "Collaborated with team members to tailor Excel functions to specific data needs.",
+      //   "Ensured database integrity by promptly resolving issues."
+      // ]
     },
     {
       role: "Project Assistant",
@@ -213,12 +212,12 @@ const workExperiences = {
       companylogo: require("./assets/images/krriLogo.png"),
       date: "May 2020 – Aug 2020",
       desc: "Proactively engaged with external stakeholders and managed project-related tasks to ensure successful outcomes and high-quality deliverables.",
-      descBullets: [
-        "Collaborated with stakeholders to identify and address project challenges, continuously adapting requirements.",
-        "Conducted comprehensive literature reviews to curate the latest relevant research and industry insights.",
-        "Enhanced the quality of research papers through meticulous review and proofreading.",
-        "Applied linguistic expertise for document translation, facilitating seamless cross-language communication."
-      ]
+      // descBullets: [
+      //   "Collaborated with stakeholders to identify and address project challenges, continuously adapting requirements.",
+      //   "Conducted comprehensive literature reviews to curate the latest relevant research and industry insights.",
+      //   "Enhanced the quality of research papers through meticulous review and proofreading.",
+      //   "Applied linguistic expertise for document translation, facilitating seamless cross-language communication."
+      // ]
     }
   ]
 };
@@ -239,7 +238,7 @@ const bigProjects = {
   projects: [
     {
       video: require("./assets/videos/fps.mp4"),
-      projectName: "3D VR FPS game",
+      projectName: "VR 3D FPS game",
       // projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       // footerLink: [
       //   {
@@ -284,6 +283,17 @@ const bigProjects = {
       ]
     },
     {
+      // image: require("./assets/images/contaminatedworld.png"),
+      projectName: "Game of Life",
+      // projectDesc: "Platform game set in a mystery-contaminated world",
+      footerLink: [
+        {
+          name: "Document",
+          url: "https://drive.google.com/file/d/1vmisD3_P_nbnl_wWh5uryGuLSUnztBuB/view?usp=sharing"
+        }
+      ]
+    },
+    {
       image: require("./assets/images/contaminatedworld.png"),
       projectName: "Contaminated World",
       projectDesc: "Platform game set in a mystery-contaminated world",
@@ -291,6 +301,17 @@ const bigProjects = {
         {
           name: "GitHub",
           url: "https://github.com/rjimin/GameJam2023"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/scotlandyard.png"),
+      projectName: "Scotland Yard Board Game",
+      // projectDesc: "Platform game set in a mystery-contaminated world",
+      footerLink: [
+        {
+          name: "Document",
+          url: "https://drive.google.com/file/d/1FHWe4rRDohhmLqL7pBaVw2tLuy99lycE/view?usp=sharing"
         }
       ]
     }
