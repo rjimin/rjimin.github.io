@@ -51,13 +51,13 @@ const skillsSection = {
   title: "What I do",
   // subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
   skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
+    // emoji(
+    //   "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
+    // ),
+    // emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
+    // emoji(
+    //   "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
+    // )
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -162,10 +162,12 @@ const workExperiences = {
       company: "Hanyang University",
       companylogo: require("./assets/images/hyusimpleLogo.png"),
       date: "July 2024 – Sep 2024",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      desc: "Contributed to research and development projects focused on reducing cybersickness and enhancing VR experiences.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
+        "Conducted a comprehensive literature review, participated in experiment design, data collection, and statistical analysis.",
+        "Reviewed and revised the thesis based on iterative feedback, and created supplementary materials to support it.",
+        "Led a seminar to present research findings and methodologies to peers."
       ]
     },
     {
@@ -173,28 +175,50 @@ const workExperiences = {
       company: "University of Bristol",
       companylogo: require("./assets/images/uobLogorm.png"),
       date: "Oct 2023 – Mar 2024",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      desc: "Facilitated specialized workshops to support intersectionally disadvantaged students, focusing on creating an inclusive and liberatory university environment.",
+      descBullets: [
+        "Tailored workshop content to address the specific challenges faced by disadvantaged students.",
+        "Led mentor sessions, emphasizing the understanding of intersectionality and microaggressions.",
+        "Collaborated with peers to enhance workshop effectiveness and relevance."
+        ]
     },
     {
       role: "UX Research Assistant",
       company: "Global Research",
       companylogo: require("./assets/images/globalresearchLogo.png"),
       date: "Jul 2023 – Sep 2023",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      desc: "Conducted software testing and user experience research to ensure seamless operations and align platform design with user needs.",
+      descBullets: [
+        "Analyzed and prioritized platform UI/UX designs for optimal user experience.",
+        "Performed user research using diverse methodologies to inform development.",
+        "Created data visualizations to facilitate data-driven decision-making.",
+        "Researched AI applications, assessing their impact on usability and future trends."
+        ]
     },
     {
       role: "Database Assistant",
       company: "Testing Certification Institute",
       companylogo: require("./assets/images/ktcLogo.png"),
       date: "Jan 2022 – Sep 2022",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      desc: "Responsible for maintaining and optimizing company databases, ensuring data accuracy, and enhancing data processing efficiency.",
+      descBullets: [
+        "Streamlined data analysis using advanced Excel techniques.",
+        "Collaborated with team members to tailor Excel functions to specific data needs.",
+        "Ensured database integrity by promptly resolving issues."
+      ]
     },
     {
       role: "Project Assistant",
       company: "Railroad Research Institute",
       companylogo: require("./assets/images/krriLogo.png"),
       date: "May 2020 – Aug 2020",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      desc: "Proactively engaged with external stakeholders and managed project-related tasks to ensure successful outcomes and high-quality deliverables.",
+      descBullets: [
+        "Collaborated with stakeholders to identify and address project challenges, continuously adapting requirements.",
+        "Conducted comprehensive literature reviews to curate the latest relevant research and industry insights.",
+        "Enhanced the quality of research papers through meticulous review and proofreading.",
+        "Applied linguistic expertise for document translation, facilitating seamless cross-language communication."
+      ]
     }
   ]
 };
