@@ -289,7 +289,7 @@ const bigProjects = {
       footerLink: [
         {
           name: "Document",
-          url: "https://drive.google.com/file/d/1vmisD3_P_nbnl_wWh5uryGuLSUnztBuB/view?usp=sharing"
+          url: "/game_of_life.pdf"
         }
       ]
     },
@@ -311,7 +311,7 @@ const bigProjects = {
       footerLink: [
         {
           name: "Document",
-          url: "https://drive.google.com/file/d/1FHWe4rRDohhmLqL7pBaVw2tLuy99lycE/view?usp=sharing"
+          url: "/scotland_yard.pdf"
         }
       ]
     }
