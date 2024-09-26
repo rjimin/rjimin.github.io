@@ -23,7 +23,7 @@ const greeting = {
   username: "Jimin Ryu",
   title: "Hello, I'm Jimin",
   subTitle: emoji(
-    "Proactive problem solver with strong communication skills, thriving in collaborative environments. Driven by creative solutions and a commitment to delivering high-quality results."
+    "As a proactive and creative final-year computer science student, I thrive on solving complex problems through innovative solutions. My collaborative nature and strong communication skills enable me to work effectively within teams, driving projects forward with a focus on achieving impactful results."
   ),
   resumeLink: true,
   displayGreeting: true // Set false to hide this section, defaults to true
@@ -94,6 +94,14 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "React",
       fontAwesomeClassname: "fab fa-react"
+    },
+    {
+      skillName: "HTML",
+      fontAwesomeClassname: "fab fa-html5"
+    },
+    {
+      skillName: "CSS",
+      fontAwesomeClassname: "fab fa-css3-alt"
     },
     {
       skillName: "Haskell",
@@ -238,8 +246,8 @@ const bigProjects = {
   projects: [
     {
       video: require("./assets/videos/fps.mp4"),
-      projectName: "VR 3D FPS game",
-      // projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      projectName: "VR 3D FPS Game",
+      projectDesc: "Utilising Meta Quest 3 and Omni Treadmill for immersive and realistic gameplay experiences"
       // footerLink: [
       //   {
       //     name: "GitHub",
@@ -250,7 +258,7 @@ const bigProjects = {
     {
       image: require("./assets/images/ibm.png"),
       projectName: "Edutopia",
-      projectDesc: "Map-based city-building combat game, enhancing engagement and promoting student involvement in IBM SkillsBuild",
+      projectDesc: "Map-based city-building combat game, enhancing engagement and promoting student involvement in IBM SkillsBuild"
       // footerLink: [
       //   {
       //     name: "GitHub",
