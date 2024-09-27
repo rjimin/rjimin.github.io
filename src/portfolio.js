@@ -295,7 +295,7 @@ const bigProjects = {
       ]
     },
     {
-      // image: require("./assets/images/contaminatedworld.png"),
+      image: require("./assets/images/gameoflife.png"),
       projectName: "Game of Life",
       // projectDesc: "Platform game set in a mystery-contaminated world",
       footerLink: [
