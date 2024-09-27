@@ -64,16 +64,16 @@ https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
     {
-      skillName: "Golang",
-      fontAwesomeClassname: "fab fa-golang"
-    },
-    {
       skillName: "Python",
       fontAwesomeClassname: "fab fa-python"
     },
     {
       skillName: "Java",
       fontAwesomeClassname: "fab fa-java"
+    },
+    {
+      skillName: "Golang",
+      fontAwesomeClassname: "fab fa-golang"
     },
     {
       skillName: "C",
@@ -86,6 +86,10 @@ https://fontawesome.com/icons?d=gallery */
     {
       skillName: "C#",
       fontAwesomeClassname: "fas fa-hashtag"
+    },
+    {
+      skillName: "Haskell",
+      fontAwesomeClassname: "fas fa-code"
     },
     {
       skillName: "JavaScript",
@@ -104,8 +108,8 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fab fa-css3-alt"
     },
     {
-      skillName: "Haskell",
-      fontAwesomeClassname: "fas fa-code"
+      skillName: "Git",
+      fontAwesomeClassname: "fab fa-git-alt"
     },
     {
       skillName: "AWS",
@@ -113,7 +117,7 @@ https://fontawesome.com/icons?d=gallery */
     },
     {
       skillName: "Unity",
-      fontAwesomeClassname: "fas fa-gamepad"
+      fontAwesomeClassname: "fab fa-unity"
     }
   ],
   display: true // Set false to hide this section, defaults to true
