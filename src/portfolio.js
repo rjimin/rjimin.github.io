@@ -249,6 +249,18 @@ const bigProjects = {
   // subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
   projects: [
     {
+      image: require("./assets/images/haunted.gif"),
+      projectName: "Haunted Escape",
+      projectDesc: "15-stage suspense game set in a haunted environment, challenging players to navigate and escape dynamic traps and ghostly encounters",
+      footerLink: [
+        {
+          name: "GitHub",
+          url: "https://github.com/rjimin/GameJam2024.git"
+        }
+        //  you can add extra buttons here.
+      ]
+    },
+    {
       video: require("./assets/videos/fps.mp4"),
       projectName: "VR 3D FPS Game",
       projectDesc: "Utilising Meta Quest 3 and Omni Treadmill for immersive and realistic gameplay experiences"
