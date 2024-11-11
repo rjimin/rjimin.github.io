@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.53972a9d.css",
-    "main.js": "/static/js/main.6017c296.js",
+    "main.js": "/static/js/main.5cac4ba3.js",
     "static/css/64.f7f05f30.chunk.css": "/static/css/64.f7f05f30.chunk.css",
     "static/js/64.56dc6704.chunk.js": "/static/js/64.56dc6704.chunk.js",
     "static/css/769.b3cbb36b.chunk.css": "/static/css/769.b3cbb36b.chunk.css",
@@ -12,7 +12,7 @@
     "static/media/gameoflife.png": "/static/media/gameoflife.076305ab236d44b786ba.png",
     "static/media/moodtracker.gif": "/static/media/moodtracker.0d13ebb7612ea1b91aad.gif",
     "static/media/Montserrat-Regular.ttf": "/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
-    "static/media/Jimin_Ryu_CV.pdf": "/static/media/Jimin_Ryu_CV.324b6096643c12e6b2f5.pdf",
+    "static/media/Jimin_Ryu_CV.pdf": "/static/media/Jimin_Ryu_CV.9de79657fd4a1f41a62c.pdf",
     "static/media/Agustina.woff": "/static/media/Agustina.eb0c59dda4cc308cba96.woff",
     "static/media/hyusimpleLogo.png": "/static/media/hyusimpleLogo.b256631b11dcc2c855a7.png",
     "static/media/ibm.png": "/static/media/ibm.9b67594a2945e1cc9427.png",
@@ -33,7 +33,7 @@
     "index.html": "/index.html",
     "static/media/talksCardBack.svg": "/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
     "main.53972a9d.css.map": "/static/css/main.53972a9d.css.map",
-    "main.6017c296.js.map": "/static/js/main.6017c296.js.map",
+    "main.5cac4ba3.js.map": "/static/js/main.5cac4ba3.js.map",
     "64.f7f05f30.chunk.css.map": "/static/css/64.f7f05f30.chunk.css.map",
     "64.56dc6704.chunk.js.map": "/static/js/64.56dc6704.chunk.js.map",
     "769.b3cbb36b.chunk.css.map": "/static/css/769.b3cbb36b.chunk.css.map",
@@ -41,6 +41,6 @@
   },
   "entrypoints": [
     "static/css/main.53972a9d.css",
-    "static/js/main.6017c296.js"
+    "static/js/main.5cac4ba3.js"
   ]
 }
