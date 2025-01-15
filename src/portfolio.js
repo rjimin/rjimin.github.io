@@ -184,7 +184,7 @@ const workExperiences = {
     {
       role: "Co-creator",
       company: "University of Bristol",
-      companylogo: require("./assets/images/uobLogorm.png"),
+      companylogo: require("./assets/images/uobWhite.png"),
       date: "Oct 2023 – Mar 2024",
       desc: "Facilitated specialized workshops to support intersectionally disadvantaged students, focusing on creating an inclusive and liberatory university environment.",
       // descBullets: [
@@ -248,6 +248,18 @@ const bigProjects = {
   title: "Projects",
   // subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
   projects: [
+    {
+      image: require("./assets/images/cg.gif"),
+      projectName: "Computer Graphics",
+      projectDesc: "3D rendering engine with a Cornell Box simulation",
+      footerLink: [
+        {
+          name: "GitHub",
+          url: "https://github.com/rjimin/CG"
+        }
+        //  you can add extra buttons here.
+      ]
+    },
     {
       image: require("./assets/images/haunted.gif"),
       projectName: "Haunted Escape",
