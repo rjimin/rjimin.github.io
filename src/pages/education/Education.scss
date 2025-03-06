@@ -1,0 +1,122 @@
+@import "../../styles/variables";
+
+#education {
+  max-width: 900px;
+  //margin: 0 auto;
+  //padding: 20px;
+}
+
+h2 {
+  text-align: left;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.education-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 0;
+  width: 77%;
+  margin-bottom: 20px;
+  position: relative; /* Needed for absolute positioning of ::after */
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Align with bottom border */
+    width: 100%; /* Matches default width */
+    height: 2px; /* Thickness of the underline */
+    background-color: $light-Border; /* Default border colour */
+    transition: width 0.6s ease-in-out, background-color 0.6s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 130%; /* Expands underline */
+    background-color: $light-primary-color; /* Changes colour on hover */
+  }
+}
+
+/* Dark mode version */
+.dark-mode .education-card::after {
+  background-color: $dark-Border;
+}
+
+.dark-mode .education-card:hover::after {
+  background-color: $dark-primary-color;
+}
+
+
+.school-logo {
+  background-color: #ffffff; /* Change to your preferred color */
+  border-radius: 5px;       /* Rounded corners */
+  padding: 4px;            /* Add space around the logo */
+  display: inline-block;
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+}
+
+.education-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.education-details h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
+
+.education-details h4 {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.education-details p {
+  font-size: 16px;
+  color: #666;
+  margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+  .education-card {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .education-details {
+    align-items: center;
+  }
+
+  .education-details h3,
+  .education-details h4,
+  .education-details p {
+    text-align: center;
+  }
+
+  .school-logo {
+    width: 50px;
+  }
+
+  .education-card::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 69%;
+  }
+
+  .education-card:hover::after {
+    width: 110%; /* Expands fully */
+  }
+}

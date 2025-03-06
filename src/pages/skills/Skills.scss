@@ -1,0 +1,139 @@
+@import "../../styles/variables";
+
+.software-skills-main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.skills-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Break to new lines if needed */
+  gap: 30px; /* Space between icons */
+  list-style: none;
+  padding: 10px 0;
+  transition: transform 0.3s ease-in-out;
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: transparent !important;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+          opacity 0.6s ease-out,
+          transform 0.6s ease-out;
+}
+
+.skill-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-icon {
+  font-size: 50px; /* Default size */
+  transition: transform 0.3s ease-in-out;
+}
+
+.skill-icon:hover {
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 14px;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #757575; /* Adjust based on your theme */
+}
+
+/* ✅ Fully Responsive Design (No Overflow) */
+
+/* Large Tablets and Small Laptops */
+@media (max-width: 1024px) {
+  .skills-row {
+    gap: 25px;
+  }
+
+  .skill-item {
+    width: calc(20% - 10px);
+    max-width: 100px; /* Good balance for medium screens */
+  }
+
+  .skill-icon {
+    font-size: 45px;
+  }
+
+  .skill-name {
+    font-size: 13px;
+  }
+}
+
+/* Tablets (3 Columns) */
+@media (max-width: 768px) {
+  .skills-row {
+    gap: 20px;
+  }
+
+  .skill-item {
+    width: calc(25% - 10px);
+    max-width: 90px; /* Slightly smaller but still readable */
+  }
+
+  .skill-icon {
+    font-size: 42px;
+  }
+
+  .skill-name {
+    font-size: 12px;
+  }
+}
+
+/* Small Tablets and Large Phones (2 Columns) */
+@media (max-width: 600px) {
+  .skills-row {
+    gap: 15px;
+  }
+
+  .skill-item {
+    width: calc(33.333% - 10px);
+    max-width: 80px; /* Ensures proper spacing */
+  }
+
+  .skill-icon {
+    font-size: 38px;
+  }
+
+  .skill-name {
+    font-size: 11px;
+  }
+}
+
+/* Mobile Devices (2 Columns) */
+@media (max-width: 480px) {
+  .skills-row {
+    gap: 10px;
+  }
+
+  .skill-item {
+    width: calc(50% - 10px);
+    max-width: 70px; /* Keeps everything visible */
+  }
+
+  .skill-icon {
+    font-size: 35px;
+  }
+
+  .skill-name {
+    font-size: 10px;
+  }
+}

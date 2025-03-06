@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+
+#contact {
+  text-align: center;
+  //padding: 50px;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  font-size: 18px;
+  color: $light-primary-color;
+}
+
+.dark-mode .contact-info {
+  font-size: 18px;
+  color: $dark-primary-color;
+}
+
+.contact-info a {
+  color: $light-Text;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dark-mode .contact-info a {
+  color: $dark-Text;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}

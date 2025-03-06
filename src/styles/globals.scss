@@ -1,0 +1,160 @@
+@import "./variables";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+/* ✅ Apply smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+}
+
+/* ✅ Header styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  text-align: center;
+  background: linear-gradient(135deg, $light-primary-color, $light-secondary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+body.dark-mode {
+  h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(135deg, $dark-primary-color, $dark-secondary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ✅ Set global font and background */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: $light-Background;
+  color: $light-Text;
+  box-sizing: border-box;
+}
+
+.dark-mode body {
+  background-color: $dark-Background;
+  color: $dark-Text;
+}
+
+/* ✅ Global section styling (applies to all sections) */
+section {
+  max-width: 1200px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 20px 0px;
+  //border-radius: 10px;
+  //background: rgba(255, 255, 255, 0.1);
+  //box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  //overflow: hidden;
+}
+
+/* ✅ Remove width: 100% from the navbar */
+//.sidebar {
+//  width: 290px;
+//  position: fixed;
+//  left: 15px;
+//  top: 50%; /* ✅ Start positioning from the middle of the screen */
+//  height: calc(100dvh - (50px + 20px)); /* ✅ Adjust height to fit within the screen */
+//  background: white;
+//  border-radius: 40px;
+//  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+//  overflow: hidden;
+//  box-sizing: border-box;
+//  transform: translateY(-50%); /* ✅ Shift up by half its height to center it */
+//}
+
+/* ✅ Default button styles */
+button {
+  padding: 9px 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  background: linear-gradient(135deg, $light-primary-color, $dark-primary-color);
+  background-size: 200% 200%;
+  transition: background-position 1s ease-in-out;
+  text-align: center;
+  //display: inline-block;
+  overflow: hidden;
+  border: none;
+
+  &:hover {
+    background-position: right center;
+  }
+}
+
+body.dark-mode button {
+  padding: 12px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  background: linear-gradient(135deg, $dark-primary-color, $light-primary-color);
+  background-size: 200% 200%;
+  transition: background-position 1s ease-in-out;
+  text-align: center;
+  //display: inline-block;
+  overflow: hidden;
+  border: none;
+
+  &:hover {
+    background-position: right center;
+  }
+}
+
+/* ✅ Global image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ✅ Skill items */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.skill-item {
+  background: rgba(127, 86, 217, 0.3);
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-item i {
+  font-size: 20px;
+  color: $primary-color;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  will-change: opacity, transform;
+  transform: translateY(30px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+/* ✅ Responsive design for mobile screens */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+}

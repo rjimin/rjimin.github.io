@@ -1,0 +1,235 @@
+@import "../../styles/variables";
+
+//#experience {
+//  max-width: 1000px;
+//  margin: 0 auto;
+//}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* ✅ Timeline Container */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ✅ Vertical Line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background-color: $light-primary-color;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dark-mode .timeline::before {
+  background-color: $dark-primary-color;
+}
+
+/* ✅ Timeline Item */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  margin: 10px 0;
+}
+
+.timeline-item.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Move Cards Away from the Timeline Using Transform */
+.timeline-item.left {
+  justify-content: flex-end;
+  //text-align: right;
+  transform: translateX(25px); /* ⬅ Moves left cards further from the timeline */
+}
+
+.timeline-item.right {
+  justify-content: flex-start;
+  //text-align: left;
+  transform: translateX(-25px); /* ⬅ Moves right cards further from the timeline */
+}
+
+/* ✅ Keep Markers Exactly on the Timeline */
+.timeline-marker {
+  width: 16px;
+  height: 16px;
+  background-color: $light-Background;
+  border: 4px solid $light-primary-color;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%; /* Ensure it is at the center */
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.dark-mode .timeline-marker {
+  background-color: $dark-Background;
+  border: 4px solid $dark-primary-color;
+}
+
+/* Ensure the markers remain aligned on the center line */
+.timeline-item.left .timeline-marker {
+  left: calc(50% - 25px); /* Adjust for left-aligned cards */
+}
+
+.timeline-item.right .timeline-marker {
+  left: calc(50% + 25px); /* Adjust for right-aligned cards */
+}
+
+/* ✅ Timeline Content Box */
+.timeline-content {
+  width: 46%; /* ⬅ Keeps cards from touching the timeline */
+  background: rgba(255, 255, 255, 0.95);
+  padding: 17px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+/* ✅ Timeline Content Box (Both Modes) */
+.timeline-content {
+  width: 46%; /* ⬅ Keeps cards from touching the timeline */
+  padding: 17px;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid $light-Border;
+
+  // Default Light Mode Styles
+  background: $light-Background;
+  color: $light-Text;
+  box-shadow: $light-BoxShadow 0px 10px 30px -15px;
+
+  &:hover {
+    box-shadow: $light-BoxShadow 0px 20px 30px -10px;
+    transform: translateY(-5px);
+  }
+}
+
+/* ✅ Dark Mode Styles */
+.dark-mode .timeline-content {
+  background: $dark-Background;
+  color: $dark-Text;
+  box-shadow: $dark-BoxShadow 0px 10px 30px -15px;
+  border-color: 1px solid $dark-Border;
+
+  &:hover {
+    box-shadow: 0px 20px 30px -10px $dark-BoxShadow;
+    transform: translateY(-5px);
+  }
+}
+
+/* ✅ Company Header (Logo + Date) */
+.company-header {
+  display: flex;
+  align-items: center; /* Align logo and text in the same row */
+  gap: 12px; /* Space between logo and text */
+  margin-bottom: 8px;
+}
+
+/* ✅ Increase Logo Size */
+.card-layout {
+  display: flex;
+  align-items: center; /* Keeps logo and text aligned horizontally */
+  gap: 15px; /* Adds spacing between logo and text */
+  width: 100%;
+}
+
+.company-logo-container {
+  display: flex;
+  flex-direction: column; /* Stacks logo and duration vertically */
+  align-items: center; /* Centers the logo and duration */
+}
+
+.company-logo {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 4px;            /* Add space around the logo */
+  display: inline-block;     /* Ensure the background fits the logo */
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.role-title {
+  text-align: left !important;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  margin-top: -22px;
+}
+
+.company-name {
+  text-align: left !important;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.company-duration {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px; /* Adds space between logo and duration */
+  text-align: center; /* Ensures duration is centered under the logo */
+}
+
+.job-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //align-items: flex-start; /* 🔹 Aligns title and company name to the left */
+}
+
+.role-description {
+  text-align: center;
+  width: 100%; /* Ensures full width */
+  margin-top: 7px;
+}
+
+/* ✅ Responsive Design */
+@media screen and (max-width: 768px) {
+  /* ✅ Removes the timeline vertical line */
+  .timeline::before {
+    display: none;
+  }
+
+  /* ✅ Hides timeline markers on mobile */
+  .timeline-marker {
+    display: none;
+  }
+
+  /* ✅ Ensures cards are centered and fully visible */
+  .timeline-item {
+    width: 90%;
+    align-self: center;
+    transform: none !important; /* Reset transforms */
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1; /* Ensure visibility */
+  }
+
+  /* ✅ Makes timeline content take up full width on small screens */
+  .timeline-content {
+    width: 90%;
+    text-align: center;
+    opacity: 1;
+  }
+}

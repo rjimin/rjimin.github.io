@@ -1,0 +1,36 @@
+@import "./styles/variables";
+
+.app {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Full height */
+}
+
+.main-content {
+  flex-grow: 1;  /* Automatically fill remaining space */
+  width: 100%;
+  padding: 20px; /* Add padding if needed */
+  box-sizing: border-box;
+}
+
+.app.light {
+  background-color: $light-Background;
+  color: $light-Text;
+}
+
+.app.dark {
+  background-color: $dark-Background;
+  color: $dark-Text;
+}
+
+body.dark-mode {
+  background-color: $dark-Background;
+  color: $dark-Text;
+}
+
+//.main-content {
+//  flex-grow: 1;
+//  padding: 20px;
+//  margin-left: 310px; // Adjusted to match sidebar width + padding
+//  position: relative;
+//}

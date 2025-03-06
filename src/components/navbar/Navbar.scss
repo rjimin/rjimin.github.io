@@ -1,0 +1,196 @@
+@import "../../styles/variables";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  background: $light-Background;
+  padding: 10px 20px;
+}
+
+.dark-mode .navbar {
+  background: $dark-Background;
+}
+
+/* ✅ Navbar Hidden on Scroll Down */
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+/* ✅ Navbar Visible on Scroll Up */
+.navbar.visible {
+  transform: translateY(0);
+}
+
+/* ✅ Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  gap: 20px;
+  flex-grow: 1; /* Allows it to center */
+
+  li {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    transition: background 0.3s ease-in-out, border 0.3s ease;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    a {
+      color: $light-primary-color;
+      text-decoration: none;
+      padding: 10px 16px;
+      display: block;
+      transition: all 0.3s ease-in-out;
+      border-radius: inherit;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+
+      /* 🟡 Hover (non-active): Border only */
+      &.nav-item-hover:not(.nav-item-active) {
+        font-weight: bold;
+        border-color: $light-primary-color; /* Border for hover */
+        background-color: transparent; /* No background */
+      }
+
+      /* 🟢 Active (current page): Background only */
+      &.nav-item-active {
+        font-weight: bold;
+        background-color: rgba(42, 47, 114, 0.2); /* Active background */
+        border-color: transparent; /* No border */
+      }
+
+      /* 🟣 Active + Hover: Background + Border */
+      &.nav-item-active.nav-item-hover {
+        font-weight: bold;
+        background-color: rgba(42, 47, 114, 0.2); /* Maintain background */
+        border-color: $light-primary-color; /* Add border */
+      }
+    }
+  }
+}
+
+.dark-mode {
+  .nav-links li {
+    background: rgba(0, 0, 0, 0.5);
+
+    a {
+      color: $dark-primary-color; /* Change text color */
+
+      &.nav-item-hover:not(.nav-item-active) {
+        border-color: $dark-primary-color;
+      }
+
+      &.nav-item-active {
+        background-color: rgba(203, 209, 255, 0.2);
+      }
+
+      &.nav-item-active.nav-item-hover {
+        background-color: rgba(192, 197, 234, 0.2);
+        border-color: $dark-primary-color;
+      }
+    }
+  }
+}
+
+.menu-toggle {
+  cursor: pointer;
+  margin-right: auto; /* Pushes the menu-toggle to the left */
+  display: none; /* ✅ Hides by default (on full-screen) */
+}
+
+/* ✅ Center Align Navbar Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  flex-grow: 1; /* Allows it to center */
+  gap: 20px;
+}
+
+/* ✅ Right Align Dark Mode Toggle */
+.theme-toggle {
+  cursor: pointer;
+  margin-left: auto; /* Pushes the theme-toggle to the right */
+}
+
+/* ✅ Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  .no-scroll {
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    touch-action: none; // Prevents touch scrolling
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); // Semi-transparent dark background
+    z-index: 5; // Ensure it appears above other content but below the menu
+  }
+
+  .navbar {
+    justify-content: space-between;
+    //height: 60px;
+  }
+
+  .menu-toggle {
+    z-index: 1000;
+    display: block;
+    order: -1; /* Ensures it stays on the left */
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Keeps it in place */
+    top: 0;
+    left: -100%; /* Initially off-screen */
+    width: 210px; /* Adjust width as needed */
+    height: 100vh; /* Full height */
+    background-color: $light-Background;
+    text-align: left;
+    padding: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto; /* Allows scrolling within the menu if content exceeds screen height */
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .dark-mode .nav-links {
+    background-color: $dark-Background;
+  }
+
+  .nav-links li a {
+    padding: 20px;
+  }
+
+  .nav-links.nav-open {
+    left: 0; /* Slide in */
+    width: 43%;
+  }
+
+  .theme-toggle {
+    order: 1;
+  }
+}
