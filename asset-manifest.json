@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.243bc95f.css",
+    "main.js": "/static/js/main.34a31779.js",
+    "static/js/488.9561f9b8.chunk.js": "/static/js/488.9561f9b8.chunk.js",
+    "static/media/fps.mp4": "/static/media/fps.0443b50455a181e3f398.mp4",
+    "static/media/cg.gif": "/static/media/cg.e8c49344d6ad66cbfe79.gif",
+    "static/media/scotlandyard.png": "/static/media/scotlandyard.f4caa80e718a5258c969.png",
+    "static/media/haunted.gif": "/static/media/haunted.a29cfd92bb6a05153739.gif",
+    "static/media/gameoflife.png": "/static/media/gameoflife.076305ab236d44b786ba.png",
+    "static/media/moodtracker.gif": "/static/media/moodtracker.0d13ebb7612ea1b91aad.gif",
+    "static/media/hyusimpleLogo.png": "/static/media/hyusimpleLogo.b256631b11dcc2c855a7.png",
+    "static/media/ibm.png": "/static/media/ibm.17ef13cfb2b1c04bae39.png",
+    "static/media/uobLogo.png": "/static/media/uobLogo.04de7165068a2c265f5f.png",
+    "static/media/TheraGoLogo.png": "/static/media/TheraGoLogo.a5ce142ea0a85ed8e34b.png",
+    "static/media/ktcLogo.png": "/static/media/ktcLogo.100faf1e41572f594b8a.png",
+    "static/media/krriLogo.png": "/static/media/krriLogo.93e3cf9e228937758158.png",
+    "static/media/contaminatedworld.png": "/static/media/contaminatedworld.52467e43a6781dd60eb1.png",
+    "static/media/globalresearchLogo.png": "/static/media/globalresearchLogo.c56ea0f236eb72fb1df8.png",
+    "index.html": "/index.html",
+    "main.243bc95f.css.map": "/static/css/main.243bc95f.css.map",
+    "main.34a31779.js.map": "/static/js/main.34a31779.js.map",
+    "488.9561f9b8.chunk.js.map": "/static/js/488.9561f9b8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.243bc95f.css",
+    "static/js/main.34a31779.js"
+  ]
+}
