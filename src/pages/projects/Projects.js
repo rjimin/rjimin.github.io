@@ -39,7 +39,7 @@ function Projects({ darkMode }) {
     useEffect(() => {
         if (viewMode !== "grid") return; // Apply only in grid mode
 
-        const projectItems = document.querySelectorAll('.project-card');
+        const projectItems = document.querySelectorAll('.project-card.grid-view');
 
         const observer = new IntersectionObserver(
             (entries) => {
@@ -60,7 +60,7 @@ function Projects({ darkMode }) {
         return () => {
             projectItems.forEach((item) => observer.unobserve(item));
         };
-    }, [viewMode]);
+    }, [viewMode, darkMode]);
 
     return (
         <section id="projects" className="fade-in">

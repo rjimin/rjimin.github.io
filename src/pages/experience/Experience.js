@@ -27,7 +27,7 @@ function Experience({ darkMode }) {
                         }
                     });
                 },
-                { threshold: 0.3 }
+                { threshold: 0.10 }
             );
 
             timelineItems.forEach((item, index) => {

@@ -10,7 +10,7 @@
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
   background: $light-Background;
-  padding: 10px 20px;
+  padding: 3px 20px;
 }
 
 .dark-mode .navbar {
@@ -58,7 +58,7 @@
       /* 🟡 Hover (non-active): Border only */
       &.nav-item-hover:not(.nav-item-active) {
         font-weight: bold;
-        border-color: $light-primary-color; /* Border for hover */
+        //border-color: $light-primary-color; /* Border for hover */
         background-color: transparent; /* No background */
       }
 
@@ -66,14 +66,14 @@
       &.nav-item-active {
         font-weight: bold;
         background-color: rgba(42, 47, 114, 0.2); /* Active background */
-        border-color: transparent; /* No border */
+        //border-color: transparent; /* No border */
       }
 
       /* 🟣 Active + Hover: Background + Border */
       &.nav-item-active.nav-item-hover {
         font-weight: bold;
         background-color: rgba(42, 47, 114, 0.2); /* Maintain background */
-        border-color: $light-primary-color; /* Add border */
+        //border-color: $light-primary-color; /* Add border */
       }
     }
   }
@@ -87,7 +87,7 @@
       color: $dark-primary-color; /* Change text color */
 
       &.nav-item-hover:not(.nav-item-active) {
-        border-color: $dark-primary-color;
+        //border-color: $dark-primary-color;
       }
 
       &.nav-item-active {
@@ -96,7 +96,7 @@
 
       &.nav-item-active.nav-item-hover {
         background-color: rgba(192, 197, 234, 0.2);
-        border-color: $dark-primary-color;
+        //border-color: $dark-primary-color;
       }
     }
   }
@@ -150,6 +150,7 @@
 
   .navbar {
     justify-content: space-between;
+    padding: 15px 20px;
     //height: 60px;
   }
 
@@ -188,6 +189,9 @@
   .nav-links.nav-open {
     left: 0; /* Slide in */
     width: 43%;
+    overflow: hidden;     /* No scrollbars */
+    overscroll-behavior: none; /* Prevent iOS bounce */
+    touch-action: none;   /* Disable touch scroll/swipe */
   }
 
   .theme-toggle {

@@ -98,10 +98,23 @@ const education = [
 
 const experience = [
     {
+        role: "Software Engineer Intern",
+        company: "Dassault Systèmes",
+        companylogo: require("./assets/images/dassault.png"),
+        date: "Jun 2025 – Present",
+        desc: "Designed, implemented, and tested user-focused features, delivered bug fixes, and contributed to agile development efforts with international teams.",
+        // descBullets: [
+        //   "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
+        //   "Conducted a comprehensive literature review, participated in experiment design, data collection, and statistical analysis.",
+        //   "Reviewed and revised the thesis based on iterative feedback, and created supplementary materials to support it.",
+        //   "Led a seminar to present research findings and methodologies to peers."
+        // ]
+    },
+    {
         role: "Research Assistant",
         company: "Hanyang University",
         companylogo: require("./assets/images/hyusimpleLogo.png"),
-        date: "July 2024 – Sep 2024",
+        date: "Jul 2024 – Sep 2024",
         desc: "Contributed to research and development projects focused on reducing cybersickness and enhancing VR experiences.",
         // descBullets: [
         //   "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
@@ -163,6 +176,18 @@ const experience = [
 ];
 
 const projects = [
+    {
+        image: require("./assets/images/81056_mesh.png"),
+        projectName: "Bridging the Gap: Comparing Geometric Path Planning Between GPT-4o and Classical Algorithms in Indoor Navigation",
+        projectDesc: "Comparison of GPT-4o’s spatial reasoning and A* path planning in indoor navigation using 2D floorplans and structured OBB data to evaluate multimodal geometric reasoning",
+        footerLink: [
+            {
+                name: "Document",
+                url: "/bridging_the_gap.pdf"
+            }
+            //  you can add extra buttons here.
+        ]
+    },
     {
         image: require("./assets/images/cg.gif"),
         projectName: "Computer Graphics",

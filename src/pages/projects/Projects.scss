@@ -179,6 +179,11 @@
 .projects-container.grid .project-card.grid-view.visible {
   opacity: 1;
   transform: translateY(0);
+
+  &:hover {
+    box-shadow: $light-BoxShadow 0px 20px 30px -10px;
+    transform: translateY(-5px);
+  }
 }
 
 .dark-mode .projects-container.grid .project-card.grid-view {

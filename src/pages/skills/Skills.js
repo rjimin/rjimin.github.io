@@ -20,11 +20,11 @@ export default function SoftwareSkill() {
                     }
                 });
             },
-            { threshold: 0.2 }
+            { threshold: 0.10 }
         );
 
         skillItems.forEach((item, index) => {
-            item.style.transitionDelay = `${index * 80}ms`; // Stagger effect
+            item.style.transitionDelay = `${index * 40}ms`; // Stagger effect
             observer.observe(item);
         });
 
