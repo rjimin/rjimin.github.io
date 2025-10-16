@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.8ef65e39.css",
-    "main.js": "/static/js/main.49b29b37.js",
+    "main.css": "/static/css/main.b6d0f627.css",
+    "main.js": "/static/js/main.8cc80f43.js",
     "static/js/488.9561f9b8.chunk.js": "/static/js/488.9561f9b8.chunk.js",
     "static/media/fps.mp4": "/static/media/fps.0443b50455a181e3f398.mp4",
     "static/media/cg.gif": "/static/media/cg.e8c49344d6ad66cbfe79.gif",
     "static/media/scotlandyard.png": "/static/media/scotlandyard.f4caa80e718a5258c969.png",
     "static/media/haunted.gif": "/static/media/haunted.a29cfd92bb6a05153739.gif",
+    "static/media/81056_mesh.png": "/static/media/81056_mesh.ca86c12346a52e259444.png",
     "static/media/gameoflife.png": "/static/media/gameoflife.076305ab236d44b786ba.png",
     "static/media/moodtracker.gif": "/static/media/moodtracker.0d13ebb7612ea1b91aad.gif",
     "static/media/dassault.png": "/static/media/dassault.974fe96a537bfff676da.png",
@@ -19,12 +20,12 @@
     "static/media/contaminatedworld.png": "/static/media/contaminatedworld.52467e43a6781dd60eb1.png",
     "static/media/globalresearchLogo.png": "/static/media/globalresearchLogo.c56ea0f236eb72fb1df8.png",
     "index.html": "/index.html",
-    "main.8ef65e39.css.map": "/static/css/main.8ef65e39.css.map",
-    "main.49b29b37.js.map": "/static/js/main.49b29b37.js.map",
+    "main.b6d0f627.css.map": "/static/css/main.b6d0f627.css.map",
+    "main.8cc80f43.js.map": "/static/js/main.8cc80f43.js.map",
     "488.9561f9b8.chunk.js.map": "/static/js/488.9561f9b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ef65e39.css",
-    "static/js/main.49b29b37.js"
+    "static/css/main.b6d0f627.css",
+    "static/js/main.8cc80f43.js"
   ]
 }
