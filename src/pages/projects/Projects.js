@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { projects } from "../../data";
 import "./Projects.scss";
 import { FaThLarge, FaCubes } from "react-icons/fa";
@@ -6,152 +6,300 @@ import { FaThLarge, FaCubes } from "react-icons/fa";
 function Projects({ darkMode }) {
     const [viewMode, setViewMode] = useState("interactive");
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
     const videoRefs = useRef([]);
-    const projectRefs = useRef([]);
+    const containerRef = useRef(null);
+    const touchStartY = useRef(null);
+    const scrollTimeout = useRef(null);
 
+    /* === Detect mobile screen === */
+    useEffect(() => {
+        const checkMobile = () => {
+            const mobile = window.innerWidth <= 768;
+            setIsMobile(mobile);
+            if (mobile) setViewMode("grid");
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    /* === Toggle view === */
     const toggleViewMode = () => {
         setViewMode(viewMode === "interactive" ? "grid" : "interactive");
     };
 
-    const stopAllVideos = () => {
-        videoRefs.current.forEach(video => {
-            if (video) {
-                video.pause();
-                video.currentTime = 0;
+    /* === Video handling === */
+    const stopAllVideos = useCallback(() => {
+        videoRefs.current.forEach((v) => {
+            if (v) {
+                v.pause();
+                v.currentTime = 0;
             }
         });
-    };
+    }, []);
 
-    const nextProject = () => {
+    /* === Navigation === */
+    const nextProject = useCallback(() => {
         stopAllVideos();
-        setActiveIndex((prevIndex) => (prevIndex + 1) % projects.length);
-    };
+        setActiveIndex((prev) => (prev + 1) % projects.length);
+    }, [stopAllVideos]);
 
-    const prevProject = () => {
+    const prevProject = useCallback(() => {
         stopAllVideos();
-        setActiveIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
-    };
+        setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    }, [stopAllVideos]);
+
+    const goToProject = useCallback(
+        (index) => {
+            stopAllVideos();
+            setActiveIndex(index);
+        },
+        [stopAllVideos]
+    );
+
+    /* === Scroll / touch only if interactive and not mobile === */
+    const handleScroll = useCallback(
+        (e) => {
+            if (isMobile) return;
+            e.preventDefault();
+            if (Math.abs(e.deltaY) < 30) return;
+            if (scrollTimeout.current) return;
+
+            if (e.deltaY > 0) nextProject();
+            else prevProject();
+
+            scrollTimeout.current = setTimeout(() => {
+                scrollTimeout.current = null;
+            }, 800);
+        },
+        [nextProject, prevProject, isMobile]
+    );
+
+    const handleTouchStart = useCallback((e) => {
+        if (isMobile) return;
+        touchStartY.current = e.touches[0].clientY;
+    }, [isMobile]);
+
+    const handleTouchEnd = useCallback(
+        (e) => {
+            if (isMobile) return;
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY.current - touchEndY;
+            if (Math.abs(diff) < 50) return;
+            if (diff > 0) nextProject();
+            else prevProject();
+        },
+        [nextProject, prevProject, isMobile]
+    );
 
     useEffect(() => {
-        stopAllVideos();
-    }, [viewMode]);
+        const el = containerRef.current;
+        if (viewMode !== "interactive" || !el || isMobile) return;
 
-    useEffect(() => {
-        if (viewMode !== "grid") return; // Apply only in grid mode
+        const onWheel = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            handleScroll(e);
+        };
 
-        const projectItems = document.querySelectorAll('.project-card.grid-view');
+        const onTouchStart = (e) => {
+            e.stopPropagation();
+            handleTouchStart(e);
+        };
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        entry.target.style.transitionDelay = `${(index % 3) * 80}ms`; // Stagger effect
-                    } else {
-                        entry.target.classList.remove("visible");
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
+        const onTouchEnd = (e) => {
+            e.stopPropagation();
+            handleTouchEnd(e);
+        };
 
-        projectItems.forEach((item) => observer.observe(item));
+        el.addEventListener("wheel", onWheel, { passive: false });
+        el.addEventListener("touchstart", onTouchStart, { passive: false });
+        el.addEventListener("touchend", onTouchEnd, { passive: false });
 
         return () => {
-            projectItems.forEach((item) => observer.unobserve(item));
+            el.removeEventListener("wheel", onWheel);
+            el.removeEventListener("touchstart", onTouchStart);
+            el.removeEventListener("touchend", onTouchEnd);
         };
+    }, [viewMode, handleScroll, handleTouchStart, handleTouchEnd, isMobile]);
+
+    /* === Fade-in animation for grid === */
+    useEffect(() => {
+        if (viewMode !== "grid") return;
+        let lastScrollY = window.scrollY;
+        const cards = document.querySelectorAll(".project-card.grid-view");
+
+        const handleScroll = () => {
+            const scrollingDown = window.scrollY > lastScrollY;
+            lastScrollY = window.scrollY;
+
+            cards.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const inView =
+                    rect.top < window.innerHeight * 0.85 &&
+                    rect.bottom > window.innerHeight * 0.15;
+
+                if (inView) {
+                    card.classList.add("visible");
+                    card.classList.remove("fade-out-up", "fade-out-down");
+                } else {
+                    card.classList.remove("visible");
+                    card.classList.add(scrollingDown ? "fade-out-down" : "fade-out-up");
+                }
+            });
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
     }, [viewMode, darkMode]);
 
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        // === Interactive mode: dynamically match active card height ===
+        if (viewMode === "interactive") {
+            const activeCard = container.querySelector(".project-card.active");
+            if (activeCard) {
+                const rect = activeCard.getBoundingClientRect();
+                container.style.height = `${rect.height}px`;
+            }
+        } else {
+            // === Grid mode: reset to auto ===
+            container.style.height = "auto";
+        }
+    }, [activeIndex, viewMode]);
+
+    /* === Render === */
     return (
         <section id="projects" className="fade-in">
             <h2 className="projects-title">Projects</h2>
 
-            <div className="projects-buttons">
-                <button onClick={toggleViewMode} className="toggle-button">
-                    {viewMode === "interactive" ? <FaThLarge size={24} /> : <FaCubes size={24} />}
-                </button>
-            </div>
+            {/* hide toggle on mobile */}
+            {!isMobile && (
+                <div className="projects-buttons">
+                    <button onClick={toggleViewMode} className="toggle-button">
+                        {viewMode === "interactive" ? (
+                            <FaThLarge size={24} />
+                        ) : (
+                            <FaCubes size={24} />
+                        )}
+                    </button>
+                </div>
+            )}
 
-            {/* Interactive View (Carousel) */}
-            {viewMode === "interactive" ? (
-                <div className="carousel">
-                    <div className="carousel-container">
-                        {projects.map((project, index) => {
-                            const position = (index - activeIndex + projects.length) % projects.length;
-                            let transformStyle = "";
-                            let zIndex = 1;
-                            let opacity = 0.3;
-                            let visibility = "hidden";
+            {/* === INTERACTIVE MODE === */}
+            {!isMobile && viewMode === "interactive" ? (
+                <div className="carousel vertical" ref={containerRef}>
+                    {projects.map((project, index) => {
+                        const offset = index - activeIndex;
+                        const transformStyle = `translate(-50%, calc(-50% + ${offset * 100}%))`;
+                        const opacity = offset === 0 ? 1 : 0;
+                        const zIndex = offset === 0 ? 3 : 1;
 
-                            if (position === 0) {
-                                // Main Card (Center)
-                                transformStyle = "scale(1) translateX(0px)";
-                                zIndex = 5;
-                                opacity = 1;
-                                visibility = "visible";
-                            } else if (position === 1) {
-                                // Right Side Card
-                                transformStyle = "scale(0.85) rotateY(-15deg) translateX(250px)";
-                                zIndex = 3;
-                                opacity = 0.5;
-                                visibility = "visible";
-                            } else if (position === 2) {
-                                // Right-Back Card
-                                transformStyle = "scale(0.75) rotateY(-10deg) translateX(400px)";
-                                zIndex = 2;
-                                opacity = 0.3;
-                                visibility = "visible";
-                            } else if (position === projects.length - 1) {
-                                // Left Side Card
-                                transformStyle = "scale(0.85) rotateY(15deg) translateX(-250px)";
-                                zIndex = 3;
-                                opacity = 0.5;
-                                visibility = "visible";
-                            } else if (position === projects.length - 2) {
-                                // Left-Back Card
-                                transformStyle = "scale(0.75) rotateY(10deg) translateX(-400px)";
-                                zIndex = 2;
-                                opacity = 0.3;
-                                visibility = "visible";
-                            }
+                        return (
+                            <div
+                                key={index}
+                                className={`project-card interactive vertical ${
+                                    darkMode ? "dark" : ""
+                                } ${offset === 0 ? "active" : ""}`}
+                                style={{ transform: transformStyle, zIndex, opacity }}
+                            >
+                                <div className="project-content">
+                                    <div className="project-media">
+                                        {project.video ? (
+                                            <video
+                                                ref={(el) => (videoRefs.current[index] = el)}
+                                                controls
+                                            >
+                                                <source
+                                                    src={project.video}
+                                                    type="video/mp4"
+                                                />
+                                            </video>
+                                        ) : (
+                                            <img
+                                                src={project.image}
+                                                alt={project.projectName}
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="project-info">
+                                        <h3>{project.projectName}</h3>
+                                        {project.languages && (
+                                            <p className="project-languages">
+                                                {project.languages.join(", ")}
+                                            </p>
+                                        )}
+                                        <p>{project.projectDesc}</p>
+                                        <div className="project-links">
+                                            {project.footerLink?.map((link, i) => (
+                                                <a
+                                                    key={i}
+                                                    href={link.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="project-button"
+                                                >
+                                                    {link.name}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
 
-                            const isActive = position === 0;
-
-                            return (
-                                <div
-                                    key={index}
-                                    className={`project-card interactive ${isActive ? "active" : ""} ${
-                                        darkMode ? "project-card-dark" : "project-card"
-                                    }`}
-                                    style={{
-                                        transform: transformStyle,
-                                        zIndex: zIndex,
-                                        opacity: opacity,
-                                        visibility: visibility, // 🟡 Only show visible cards
-                                        display: isActive || visibility === "visible" ? "flex" : "none", // 🟢 Hide the stuck card
-                                    }}
-                                >
+                    <div className="nav-dots-vertical">
+                        {projects.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`dot ${i === activeIndex ? "active" : ""}`}
+                                onClick={() => goToProject(i)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            ) : (
+                /* === GRID MODE (default for mobile) === */
+                <div className="projects-container grid">
+                    {projects.map((project, index) => (
+                        <div
+                            key={index}
+                            className={`project-card grid-view ${
+                                darkMode ? "dark" : ""
+                            }`}
+                        >
+                            <div className="project-content">
+                                <div className="project-media">
                                     {project.video ? (
                                         <video
                                             ref={(el) => (videoRefs.current[index] = el)}
                                             controls
-                                            className="project-video"
                                         >
-                                            <source src={project.video} type="video/mp4"/>
-                                            Your browser does not support the video tag.
+                                            <source
+                                                src={project.video}
+                                                type="video/mp4"
+                                            />
                                         </video>
                                     ) : (
                                         <img
                                             src={project.image}
                                             alt={project.projectName}
-                                            className="project-image"
                                         />
                                     )}
-
+                                </div>
+                                <div className="project-info">
                                     <h3>{project.projectName}</h3>
+                                    {project.languages && (
+                                        <p className="project-languages">
+                                            {project.languages.join(", ")}
+                                        </p>
+                                    )}
                                     <p>{project.projectDesc}</p>
-
-                                    {/* Project Links */}
                                     <div className="project-links">
                                         {project.footerLink?.map((link, i) => (
                                             <a
@@ -166,58 +314,6 @@ function Projects({ darkMode }) {
                                         ))}
                                     </div>
                                 </div>
-                            );
-                        })}
-                    </div>
-                    <div className="nav-buttons-container">
-                        <button className="nav-button left" onClick={prevProject}>&lt;</button>
-                        <button className="nav-button right" onClick={nextProject}>&gt;</button>
-                    </div>
-                </div>
-            ) : (
-                // Grid View
-                <div className="projects-container grid">
-                    {projects.map((project, index) => (
-                        <div
-                            key={index}
-                            ref={(el) => (projectRefs.current[index] = el)}
-                            className={`project-card grid-view ${
-                                darkMode ? "project-card-dark" : "project-card"
-                            }`}
-                        >
-                            {project.video ? (
-                                <video
-                                    ref={(el) => (videoRefs.current[index] = el)}
-                                    controls
-                                    className="project-video"
-                                >
-                                    <source src={project.video} type="video/mp4"/>
-                                    Your browser does not support the video tag.
-                                </video>
-                            ) : (
-                                <img
-                                    src={project.image}
-                                    alt={project.projectName}
-                                    className="project-image"
-                                />
-                            )}
-
-                            <h3>{project.projectName}</h3>
-                            <p>{project.projectDesc}</p>
-
-                            {/* Project Links */}
-                            <div className="project-links">
-                                {project.footerLink?.map((link, i) => (
-                                    <a
-                                        key={i}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="project-button"
-                                    >
-                                        {link.name}
-                                    </a>
-                                ))}
                             </div>
                         </div>
                     ))}

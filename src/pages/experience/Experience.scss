@@ -197,7 +197,7 @@ h2 {
 }
 
 .role-description {
-  text-align: center;
+  //text-align: center;
   width: 100%; /* Ensures full width */
   margin-top: 7px;
 }
@@ -219,7 +219,7 @@ h2 {
     width: 90%;
     align-self: center;
     transform: none !important; /* Reset transforms */
-    text-align: center !important;
+    //text-align: center !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -229,7 +229,7 @@ h2 {
   /* ✅ Makes timeline content take up full width on small screens */
   .timeline-content {
     width: 90%;
-    text-align: center;
+    //text-align: center;
     opacity: 1;
   }
 }

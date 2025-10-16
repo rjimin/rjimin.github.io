@@ -102,7 +102,7 @@ const experience = [
         company: "Dassault Systèmes",
         companylogo: require("./assets/images/dassault.png"),
         date: "Jun 2025 – Present",
-        desc: "Designed, implemented, and tested user-focused features, delivered bug fixes, and contributed to agile development efforts with international teams.",
+        desc: "Designed, implemented, and tested user-focused features, delivered bug fixes, and contributed to agile development efforts with international teams",
         // descBullets: [
         //   "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
         //   "Conducted a comprehensive literature review, participated in experiment design, data collection, and statistical analysis.",
@@ -115,7 +115,7 @@ const experience = [
         company: "Hanyang University",
         companylogo: require("./assets/images/hyusimpleLogo.png"),
         date: "Jul 2024 – Sep 2024",
-        desc: "Contributed to research and development projects focused on reducing cybersickness and enhancing VR experiences.",
+        desc: "Contributed to research and development projects focused on reducing cybersickness and enhancing VR experiences",
         // descBullets: [
         //   "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
         //   "Conducted a comprehensive literature review, participated in experiment design, data collection, and statistical analysis.",
@@ -128,7 +128,7 @@ const experience = [
         company: "Royal Academy of Engineering",
         companylogo: require("./assets/images/the_royal_academy_of_engineering_logo.png"),
         date: "Oct 2023 – Mar 2024",
-        desc: "Facilitated specialized workshops to support intersectionally disadvantaged students, focusing on creating an inclusive and liberatory university environment.",
+        desc: "Facilitated specialized workshops to support intersectionally disadvantaged students, focusing on creating an inclusive and liberatory university environment",
         // descBullets: [
         //   "Tailored workshop content to address the specific challenges faced by disadvantaged students.",
         //   "Led mentor sessions, emphasizing the understanding of intersectionality and microaggressions.",
@@ -140,7 +140,7 @@ const experience = [
         company: "Global Research",
         companylogo: require("./assets/images/globalresearchLogo.png"),
         date: "Jul 2023 – Sep 2023",
-        desc: "Conducted software testing and user experience research to ensure seamless operations and align platform design with user needs.",
+        desc: "Conducted software testing and user experience research to ensure seamless operations and align platform design with user needs",
         // descBullets: [
         //   "Analyzed and prioritized platform UI/UX designs for optimal user experience.",
         //   "Performed user research using diverse methodologies to inform development.",
@@ -153,7 +153,7 @@ const experience = [
         company: "Testing Certification Institute",
         companylogo: require("./assets/images/ktcLogo.png"),
         date: "Jan 2022 – Sep 2022",
-        desc: "Responsible for maintaining and optimizing company databases, ensuring data accuracy, and enhancing data processing efficiency.",
+        desc: "Responsible for maintaining and optimizing company databases, ensuring data accuracy, and enhancing data processing efficiency",
         // descBullets: [
         //   "Streamlined data analysis using advanced Excel techniques.",
         //   "Collaborated with team members to tailor Excel functions to specific data needs.",
@@ -165,7 +165,7 @@ const experience = [
         company: "Railroad Research Institute",
         companylogo: require("./assets/images/krriLogo.png"),
         date: "May 2020 – Aug 2020",
-        desc: "Proactively engaged with external stakeholders and managed project-related tasks to ensure successful outcomes and high-quality deliverables.",
+        desc: "Proactively engaged with external stakeholders and managed project-related tasks to ensure successful outcomes and high-quality deliverables",
         // descBullets: [
         //   "Collaborated with stakeholders to identify and address project challenges, continuously adapting requirements.",
         //   "Conducted comprehensive literature reviews to curate the latest relevant research and industry insights.",
@@ -179,7 +179,7 @@ const projects = [
     {
         image: require("./assets/images/81056_mesh.png"),
         projectName: "Bridging the Gap: Comparing Geometric Path Planning Between GPT-4o and Classical Algorithms in Indoor Navigation",
-        projectDesc: "Comparison of GPT-4o’s spatial reasoning and A* path planning in indoor navigation using 2D floorplans and structured OBB data to evaluate multimodal geometric reasoning",
+        projectDesc: "Comparison of GPT-4o’s spatial reasoning and A* path planning in indoor navigation to evaluate multimodal geometric reasoning",
         footerLink: [
             {
                 name: "Document",
@@ -192,6 +192,7 @@ const projects = [
         image: require("./assets/images/cg.gif"),
         projectName: "Computer Graphics",
         projectDesc: "3D rendering engine with a Cornell Box simulation",
+        languages: ["C++"],
         footerLink: [
             {
                 name: "GitHub",
@@ -204,6 +205,7 @@ const projects = [
         image: require("./assets/images/haunted.gif"),
         projectName: "Haunted Escape",
         projectDesc: "15-stage suspense game set in a haunted environment, challenging players to navigate and escape dynamic traps and ghostly encounters",
+        languages: ["C#", "Unity"],
         footerLink: [
             {
                 name: "GitHub",
@@ -215,7 +217,8 @@ const projects = [
     {
         video: require("./assets/videos/fps.mp4"),
         projectName: "VR 3D FPS Game",
-        projectDesc: "Utilising Meta Quest 3 and Omni Treadmill for immersive and realistic gameplay experiences"
+        projectDesc: "Utilising Meta Quest 3 and Omni Treadmill for immersive and realistic gameplay experiences",
+        languages: ["C#", "Unity"]
         // footerLink: [
         //   {
         //     name: "GitHub",
@@ -226,7 +229,8 @@ const projects = [
     {
         image: require("./assets/images/ibm.png"),
         projectName: "Edutopia",
-        projectDesc: "Map-based city-building combat game, enhancing engagement and promoting student involvement in IBM SkillsBuild"
+        projectDesc: "Map-based city-building combat game, enhancing engagement and promoting student involvement in IBM SkillsBuild",
+        languages: ["C#", "Unity"]
         // footerLink: [
         //   {
         //     name: "GitHub",
@@ -239,6 +243,7 @@ const projects = [
         image: require("./assets/images/TheraGoLogo.png"),
         projectName: "Therago",
         projectDesc: "AI Assisted Mental Wellbeing WebApp",
+        languages: ["Python", "HTML", "CSS", "JavaScript"],
         footerLink: [
             {
                 name: "GitHub",
@@ -251,6 +256,7 @@ const projects = [
         image: require("./assets/images/moodtracker.gif"),
         projectName: "Mood Tracker",
         projectDesc: "Emotion-tracking platform",
+        languages: ["HTML", "CSS"],
         footerLink: [
             {
                 name: "GitHub",
@@ -262,6 +268,7 @@ const projects = [
         image: require("./assets/images/gameoflife.png"),
         projectName: "Game of Life",
         // projectDesc: "Platform game set in a mystery-contaminated world",
+        languages: ["Go", "AWS"],
         footerLink: [
             {
                 name: "Document",
@@ -273,6 +280,7 @@ const projects = [
         image: require("./assets/images/contaminatedworld.png"),
         projectName: "Contaminated World",
         projectDesc: "Platform game set in a mystery-contaminated world",
+        languages: ["C#", "Unity"],
         footerLink: [
             {
                 name: "GitHub",
@@ -284,6 +292,7 @@ const projects = [
         image: require("./assets/images/scotlandyard.png"),
         projectName: "Scotland Yard Board Game",
         // projectDesc: "Platform game set in a mystery-contaminated world",
+        languages: ["Java"],
         footerLink: [
             {
                 name: "Document",
