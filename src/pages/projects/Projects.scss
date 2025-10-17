@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
-  padding: 36px 40px;
+  padding: 32px;
 }
 
 .dark .project-card {
@@ -285,22 +285,25 @@
 
   .projects-container.grid {
     gap: 22px !important;
+    padding-top: 20px;
   }
 
   .project-card.grid-view {
     opacity: 1 !important;
-    transform: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 20px !important;
-    width: 90% !important;
-    max-width: 680px !important;
-    height: auto !important;
-    overflow: visible !important;
-    border-radius: 12px !important;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07) !important;
+    width: 100% !important;
+    max-width: calc(100vw - 24px) !important; /* ✅ ensures card never exceeds viewport */
+    margin: 0 auto !important;
+    box-sizing: border-box !important; /* ✅ includes padding/border inside width */
+    overflow: hidden !important; /* ✅ avoids shadow/padding overflow */
+  }
+
+  /* Optional: make sure horizontal scroll never appears */
+  body, html {
+    overflow-x: hidden !important;
+  }
+
+  #projects {
+    overflow-x: hidden !important;
   }
 
   .project-content {
