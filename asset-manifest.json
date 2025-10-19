@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.70c96a3b.css",
-    "main.js": "/static/js/main.8cc80f43.js",
+    "main.css": "/static/css/main.9decc3e1.css",
+    "main.js": "/static/js/main.d4d36e65.js",
     "static/js/488.9561f9b8.chunk.js": "/static/js/488.9561f9b8.chunk.js",
     "static/media/fps.mp4": "/static/media/fps.0443b50455a181e3f398.mp4",
     "static/media/cg.gif": "/static/media/cg.e8c49344d6ad66cbfe79.gif",
@@ -20,12 +20,12 @@
     "static/media/contaminatedworld.png": "/static/media/contaminatedworld.52467e43a6781dd60eb1.png",
     "static/media/globalresearchLogo.png": "/static/media/globalresearchLogo.c56ea0f236eb72fb1df8.png",
     "index.html": "/index.html",
-    "main.70c96a3b.css.map": "/static/css/main.70c96a3b.css.map",
-    "main.8cc80f43.js.map": "/static/js/main.8cc80f43.js.map",
+    "main.9decc3e1.css.map": "/static/css/main.9decc3e1.css.map",
+    "main.d4d36e65.js.map": "/static/js/main.d4d36e65.js.map",
     "488.9561f9b8.chunk.js.map": "/static/js/488.9561f9b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70c96a3b.css",
-    "static/js/main.8cc80f43.js"
+    "static/css/main.9decc3e1.css",
+    "static/js/main.d4d36e65.js"
   ]
 }
