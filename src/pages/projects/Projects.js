@@ -127,33 +127,26 @@ function Projects({ darkMode }) {
     /* === Fade-in animation for grid === */
     useEffect(() => {
         if (viewMode !== "grid") return;
-        let lastScrollY = window.scrollY;
+
         const cards = document.querySelectorAll(".project-card.grid-view");
 
-        const handleScroll = () => {
-            const scrollingDown = window.scrollY > lastScrollY;
-            lastScrollY = window.scrollY;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    } else {
+                        entry.target.classList.remove("visible");
+                    }
+                });
+            },
+            { threshold: 0.15 } // ✅ triggers when 15% of card is visible
+        );
 
-            cards.forEach((card) => {
-                const rect = card.getBoundingClientRect();
-                const inView =
-                    rect.top < window.innerHeight * 0.85 &&
-                    rect.bottom > window.innerHeight * 0.15;
+        cards.forEach((c) => observer.observe(c));
 
-                if (inView) {
-                    card.classList.add("visible");
-                    card.classList.remove("fade-out-up", "fade-out-down");
-                } else {
-                    card.classList.remove("visible");
-                    card.classList.add(scrollingDown ? "fade-out-down" : "fade-out-up");
-                }
-            });
-        };
-
-        handleScroll();
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [viewMode, darkMode]);
+        return () => cards.forEach((c) => observer.unobserve(c));
+    }, [viewMode]);
 
     useEffect(() => {
         const container = containerRef.current;
