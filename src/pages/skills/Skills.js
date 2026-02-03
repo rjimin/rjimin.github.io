@@ -1,158 +1,87 @@
-// Skills.js
 import React, { useState, useEffect } from "react";
-import { skills } from "../../data";
+import { skillCategories } from "../../data";
 import "./Skills.scss";
 
-export default function SoftwareSkill() {
-    const [hoveredIndex, setHoveredIndex] = useState(null); // ✅ Track hover state
+export default function Skills() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-    // Add Scroll Observer for Icons
-    useEffect(() => {
-        const skillItems = document.querySelectorAll('.skill-item');
+  useEffect(() => {
+    const skillItems = document.querySelectorAll(".skill-item");
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    } else {
-                        entry.target.classList.remove("visible");
-                    }
-                });
-            },
-            { threshold: 0.10 }
-        );
-
-        skillItems.forEach((item, index) => {
-            item.style.transitionDelay = `${index * 40}ms`; // Stagger effect
-            observer.observe(item);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
         });
-
-        return () => {
-            skillItems.forEach((item) => observer.unobserve(item));
-        };
-    }, []);
-
-    return (
-        <section id="skills" className="fade-in">
-            <h2 className="skills-title">Skills</h2>
-            <div className="software-skills-main-div">
-                {/* First Row */}
-                <ul className="skills-row">
-                    {skills.slice(0, 8).map((skill, i) => (
-                        <li
-                            key={i}
-                            className="skill-item"
-                            onMouseEnter={() => setHoveredIndex(i)}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                        >
-                            <div className="skill-icon">
-                                {React.cloneElement(skill.icon, {
-                                    style: {
-                                        color: hoveredIndex === i ? skill.icon.props.style.color : "grey"
-                                    }
-                                })}
-                            </div>
-                            <p
-                                className="skill-name"
-                                style={{ color: hoveredIndex === i ? skill.icon.props.style.color : "grey" }}
-                            >
-                                {skill.skillName}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Second Row */}
-                <ul className="skills-row">
-                    {skills.slice(8, 12).map((skill, i) => (
-                        <li
-                            key={i + 8}
-                            className="skill-item"
-                            onMouseEnter={() => setHoveredIndex(i + 8)}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                        >
-                            <div className="skill-icon">
-                                {React.cloneElement(skill.icon, {
-                                    style: {
-                                        color: hoveredIndex === i + 8 ? skill.icon.props.style.color : "grey"
-                                    }
-                                })}
-                            </div>
-                            <p
-                                className="skill-name"
-                                style={{ color: hoveredIndex === i + 8 ? skill.icon.props.style.color : "grey" }}
-                            >
-                                {skill.skillName}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Third Row */}
-                <ul className="skills-row">
-                    {skills.slice(12).map((skill, i) => (
-                        <li
-                            key={i + 12}
-                            className="skill-item"
-                            onMouseEnter={() => setHoveredIndex(i + 12)}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                        >
-                            <div className="skill-icon">
-                                {React.cloneElement(skill.icon, {
-                                    style: {
-                                        color: hoveredIndex === i + 12 ? skill.icon.props.style.color : "grey"
-                                    }
-                                })}
-                            </div>
-                            <p
-                                className="skill-name"
-                                style={{ color: hoveredIndex === i + 12 ? skill.icon.props.style.color : "grey" }}
-                            >
-                                {skill.skillName}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
+      },
+      { threshold: 0.1 }
     );
-}
 
-// import React from "react";
-// import { skills } from "../../data";
-// import "./Skills.scss";
-//
-// export default function SoftwareSkill() {
-//     return (
-//         <section id="skills">
-//             <h2 className="skills-title">Skills</h2>  {/* ✅ Add this title */}
-//             <div className="software-skills-main-div">
-//                 <ul className="dev-icons">
-//                     {skills.slice(0, 7).map((skill, i) => (
-//                         <li key={i} className="software-skill-inline">
-//                             <i className={`${skill.fontAwesomeClassname}`} aria-hidden="true"></i>
-//                             <p>{skill.skillName}</p>
-//                         </li>
-//                     ))}
-//                 </ul>
-//                 <ul className="dev-icons">
-//                     {skills.slice(7, 11).map((skill, i) => (
-//                         <li key={i} className="software-skill-inline">
-//                             <i className={`${skill.fontAwesomeClassname}`} aria-hidden="true"></i>
-//                             <p>{skill.skillName}</p>
-//                         </li>
-//                     ))}
-//                 </ul>
-//                 <ul className="dev-icons">
-//                     {skills.slice(11).map((skill, i) => (
-//                         <li key={i} className="software-skill-inline">
-//                             <i className={`${skill.fontAwesomeClassname}`} aria-hidden="true"></i>
-//                             <p>{skill.skillName}</p>
-//                         </li>
-//                     ))}
-//                 </ul>
-//             </div>
-//         </section>
-//     );
-// }
+    skillItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 40}ms`;
+      observer.observe(item);
+    });
+
+    return () => {
+      skillItems.forEach((item) => observer.unobserve(item));
+    };
+  }, []);
+
+  let globalIndex = 0; // 👈 ensures hover + stagger work across categories
+
+  return (
+    <section id="skills" className="fade-in">
+      <h2 className="skills-title">Skills</h2>
+
+      <div className="software-skills-main-div">
+        {Object.entries(skillCategories).map(([category, skills]) => (
+          <div className="skills-category" key={category}>
+            <h3 className="skills-category-title">{category}</h3>
+
+            <ul className="skills-row">
+              {skills.map((skill) => {
+                const index = globalIndex++;
+
+                return (
+                  <li
+                    key={skill.skillName}
+                    className="skill-item"
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    <div className="skill-icon">
+                      {React.cloneElement(skill.icon, {
+                        style: {
+                          color:
+                            hoveredIndex === index
+                              ? skill.icon.props.style.color
+                              : "grey"
+                        }
+                      })}
+                    </div>
+
+                    <p
+                      className="skill-name"
+                      style={{
+                        color:
+                          hoveredIndex === index
+                            ? skill.icon.props.style.color
+                            : "grey"
+                      }}
+                    >
+                      {skill.skillName}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

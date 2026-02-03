@@ -1,5 +1,6 @@
-import { FaPython, FaJs, FaReact, FaJava, FaHtml5, FaCss3Alt, FaGitAlt, FaAws, FaUnity, FaHashtag } from "react-icons/fa";
-import { SiGoland, SiC, SiCplusplus, SiHaskell, SiDart, SiFlutter, SiPytorch } from "react-icons/si";
+import { FaPython, FaJs, FaReact, FaJava, FaHtml5, FaCss3Alt, FaGitAlt, FaAws, FaUnity } from "react-icons/fa";
+import { SiTypescript, SiPostgresql, SiGoland, SiC, SiCplusplus, SiHaskell, SiDart, SiFlutter, SiPytorch } from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
 
 const Introduction = {
     username: "Jimin",
@@ -7,25 +8,60 @@ const Introduction = {
     subTitle: "Passionate about crafting innovative solutions and solving complex problems through technology. With a strong collaborative spirit and effective communication skills, I drive projects forward, delivering impactful results through creativity and technical expertise."
 };
 
-const skills = [
+const skillCategories = {
+  Languages: [
     { skillName: "Python", icon: <FaPython style={{ color: "#3776AB" }} /> },
-    { skillName: "Java", icon: <FaJava style={{ color: "#007396" }} /> },
-    { skillName: "Golang", icon: <SiGoland style={{ color: "#00ADD8" }} /> },
-    { skillName: "C", icon: <SiC style={{ color: "#A8B9CC" }} /> },
-    { skillName: "C++", icon: <SiCplusplus style={{ color: "#00599C" }} /> },
-    { skillName: "C#", icon: <FaHashtag style={{ color: "#239120" }} /> },
-    { skillName: "Dart", icon: <SiDart style={{ color: "#0175C2" }} /> },
-    { skillName: "Haskell", icon: <SiHaskell style={{ color: "#5D4F85" }} /> },
+
+    { skillName: "TypeScript", icon: <SiTypescript style={{ color: "#3178C6" }} /> },
     { skillName: "JavaScript", icon: <FaJs style={{ color: "#F7DF1E" }} /> },
+
+    { skillName: "SQL", icon: <SiPostgresql style={{ color: "#336791" }} /> },
+
+    { skillName: "C++", icon: <SiCplusplus style={{ color: "#00599C" }} /> },
+    { skillName: "Golang", icon: <SiGoland style={{ color: "#00ADD8" }} /> },
+    { skillName: "Java", icon: <FaJava style={{ color: "#007396" }} /> },
+
+    { skillName: "C#", icon: <TbBrandCSharp style={{ color: "#239120" }} /> },
+    { skillName: "C", icon: <SiC style={{ color: "#A8B9CC" }} /> },
+    { skillName: "Dart", icon: <SiDart style={{ color: "#0175C2" }} /> },
+    { skillName: "Haskell", icon: <SiHaskell style={{ color: "#5D4F85" }} /> }
+    ],
+
+  Frontend: [
     { skillName: "React", icon: <FaReact style={{ color: "#61DAFB" }} /> },
     { skillName: "HTML", icon: <FaHtml5 style={{ color: "#E34F26" }} /> },
-    { skillName: "CSS", icon: <FaCss3Alt style={{ color: "#1572B6" }} /> },
+    { skillName: "CSS", icon: <FaCss3Alt style={{ color: "#1572B6" }} /> }
+  ],
+
+  Tools: [
     { skillName: "Git", icon: <FaGitAlt style={{ color: "#F05032" }} /> },
     { skillName: "AWS", icon: <FaAws style={{ color: "#FF9900" }} /> },
     { skillName: "Unity", icon: <FaUnity style={{ color: "#000000" }} /> },
     { skillName: "PyTorch", icon: <SiPytorch style={{ color: "#EE4C2C" }} /> },
     { skillName: "Flutter", icon: <SiFlutter style={{ color: "#02569B" }} /> }
-];
+  ]
+};
+
+
+// const skills = [
+//     { skillName: "Python", icon: <FaPython style={{ color: "#3776AB" }} /> },
+//     { skillName: "Java", icon: <FaJava style={{ color: "#007396" }} /> },
+//     { skillName: "Golang", icon: <SiGoland style={{ color: "#00ADD8" }} /> },
+//     { skillName: "C", icon: <SiC style={{ color: "#A8B9CC" }} /> },
+//     { skillName: "C++", icon: <SiCplusplus style={{ color: "#00599C" }} /> },
+//     { skillName: "C#", icon: <FaHashtag style={{ color: "#239120" }} /> },
+//     { skillName: "Dart", icon: <SiDart style={{ color: "#0175C2" }} /> },
+//     { skillName: "Haskell", icon: <SiHaskell style={{ color: "#5D4F85" }} /> },
+//     { skillName: "JavaScript", icon: <FaJs style={{ color: "#F7DF1E" }} /> },
+//     { skillName: "React", icon: <FaReact style={{ color: "#61DAFB" }} /> },
+//     { skillName: "HTML", icon: <FaHtml5 style={{ color: "#E34F26" }} /> },
+//     { skillName: "CSS", icon: <FaCss3Alt style={{ color: "#1572B6" }} /> },
+//     { skillName: "Git", icon: <FaGitAlt style={{ color: "#F05032" }} /> },
+//     { skillName: "AWS", icon: <FaAws style={{ color: "#FF9900" }} /> },
+//     { skillName: "Unity", icon: <FaUnity style={{ color: "#000000" }} /> },
+//     { skillName: "PyTorch", icon: <SiPytorch style={{ color: "#EE4C2C" }} /> },
+//     { skillName: "Flutter", icon: <SiFlutter style={{ color: "#02569B" }} /> }
+// ];
 
 // const skills = [
 //     {
@@ -98,10 +134,10 @@ const education = [
 
 const experience = [
     {
-        role: "Software Engineer Intern",
+        role: "Software Engineer",
         company: "Dassault Systèmes",
         companylogo: require("./assets/images/dassault.png"),
-        date: "Jun 2025 – Present",
+        date: "Jun 2025 - Present",
         desc: "Designed, implemented, and tested user-focused features, delivered bug fixes, and contributed to agile development efforts with international teams",
         // descBullets: [
         //   "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
@@ -114,7 +150,7 @@ const experience = [
         role: "Research Assistant",
         company: "Hanyang University",
         companylogo: require("./assets/images/hyusimpleLogo.png"),
-        date: "Jul 2024 – Sep 2024",
+        date: "Jul 2024 - Sep 2024",
         desc: "Contributed to research and development projects focused on reducing cybersickness and enhancing VR experiences",
         // descBullets: [
         //   "Developed a VR 3D FPS game in Unity, utilizing Meta Quest 3 and Omni Treadmill, as part of research on reducing cybersickness through vibrotactile feedback.",
@@ -127,7 +163,7 @@ const experience = [
         role: "Co-creator",
         company: "Royal Academy of Engineering",
         companylogo: require("./assets/images/the_royal_academy_of_engineering_logo.png"),
-        date: "Oct 2023 – Mar 2024",
+        date: "Oct 2023 - Mar 2024",
         desc: "Facilitated specialized workshops to support intersectionally disadvantaged students, focusing on creating an inclusive and liberatory university environment",
         // descBullets: [
         //   "Tailored workshop content to address the specific challenges faced by disadvantaged students.",
@@ -139,7 +175,7 @@ const experience = [
         role: "UX Research Assistant",
         company: "Global Research",
         companylogo: require("./assets/images/globalresearchLogo.png"),
-        date: "Jul 2023 – Sep 2023",
+        date: "Jul 2023 - Sep 2023",
         desc: "Conducted software testing and user experience research to ensure seamless operations and align platform design with user needs",
         // descBullets: [
         //   "Analyzed and prioritized platform UI/UX designs for optimal user experience.",
@@ -152,7 +188,7 @@ const experience = [
         role: "Database Assistant",
         company: "Testing Certification Institute",
         companylogo: require("./assets/images/ktcLogo.png"),
-        date: "Jan 2022 – Sep 2022",
+        date: "Jan 2022 - Sep 2022",
         desc: "Responsible for maintaining and optimizing company databases, ensuring data accuracy, and enhancing data processing efficiency",
         // descBullets: [
         //   "Streamlined data analysis using advanced Excel techniques.",
@@ -164,7 +200,7 @@ const experience = [
         role: "Project Assistant",
         company: "Railroad Research Institute",
         companylogo: require("./assets/images/krriLogo.png"),
-        date: "May 2020 – Aug 2020",
+        date: "May 2020 - Aug 2020",
         desc: "Proactively engaged with external stakeholders and managed project-related tasks to ensure successful outcomes and high-quality deliverables",
         // descBullets: [
         //   "Collaborated with stakeholders to identify and address project challenges, continuously adapting requirements.",
@@ -307,4 +343,4 @@ const contact = {
     email_address: "jiminaryu@gmail.com"
 };
 
-export { Introduction, skills, education, experience, projects, contact };
+export { Introduction, skillCategories, education, experience, projects, contact };

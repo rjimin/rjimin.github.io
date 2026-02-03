@@ -1,38 +1,70 @@
 @import "../../styles/variables";
 
+/* =========================
+   Category
+   ========================= */
+
+.skills-category {
+  margin-bottom: 2rem;
+}
+
+.skills-category-title {
+  margin-bottom: 1.2rem;
+
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #555;
+}
+
+/* =========================
+   Layout
+   ========================= */
+
 .software-skills-main-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+
   width: 100%;
+  padding: 20px;
   box-sizing: border-box;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .skills-row {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Break to new lines if needed */
-  gap: 30px; /* Space between icons */
-  list-style: none;
+  flex-wrap: wrap;
+
+  gap: 30px;
   padding: 10px 0;
-  transition: transform 0.3s ease-in-out;
-  max-width: 100%; /* Prevent overflow */
+  list-style: none;
+
+  max-width: 100%;
   box-sizing: border-box;
+
+  transition: transform 0.3s ease-in-out;
 }
+
+/* =========================
+   Skill Item
+   ========================= */
 
 .skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   text-align: center;
   background: transparent !important;
+
   opacity: 0;
   transform: translateY(20px);
   transition:
-          opacity 0.3s ease-out,
-          transform 0.3s ease-out;
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
 }
 
 .skill-item.visible {
@@ -41,7 +73,7 @@
 }
 
 .skill-icon {
-  font-size: 50px; /* Default size */
+  font-size: 50px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -50,15 +82,18 @@
 }
 
 .skill-name {
-  font-size: 14px;
   margin-top: 8px;
+
+  font-size: 14px;
   font-weight: bold;
-  color: #757575; /* Adjust based on your theme */
+  color: #757575;
 }
 
-/* ✅ Fully Responsive Design (No Overflow) */
+/* =========================
+   Responsive
+   ========================= */
 
-/* Large Tablets and Small Laptops */
+/* Large Tablets / Small Laptops */
 @media (max-width: 1024px) {
   .skills-row {
     gap: 25px;
@@ -66,7 +101,7 @@
 
   .skill-item {
     width: calc(20% - 10px);
-    max-width: 100px; /* Good balance for medium screens */
+    max-width: 100px;
   }
 
   .skill-icon {
@@ -78,7 +113,7 @@
   }
 }
 
-/* Tablets (3 Columns) */
+/* Tablets */
 @media (max-width: 768px) {
   .skills-row {
     gap: 20px;
@@ -86,7 +121,7 @@
 
   .skill-item {
     width: calc(25% - 10px);
-    max-width: 90px; /* Slightly smaller but still readable */
+    max-width: 90px;
   }
 
   .skill-icon {
@@ -98,19 +133,23 @@
   }
 }
 
-/* Small Tablets and Large Phones (2 Columns) */
+/* Small Tablets / Large Phones */
 @media (max-width: 600px) {
   .skills-row {
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 18px;
   }
 
   .skill-item {
-    width: calc(33.333% - 10px);
-    max-width: 80px; /* Ensures proper spacing */
+    width: auto;
+    max-width: none;
+    padding: 10px 6px;
+    border-radius: 12px;
   }
 
   .skill-icon {
-    font-size: 38px;
+    font-size: 36px;
   }
 
   .skill-name {
@@ -118,7 +157,7 @@
   }
 }
 
-/* Mobile Devices (2 Columns) */
+/* Mobile */
 @media (max-width: 480px) {
   .skills-row {
     gap: 10px;
@@ -126,7 +165,7 @@
 
   .skill-item {
     width: calc(50% - 10px);
-    max-width: 70px; /* Keeps everything visible */
+    max-width: 70px;
   }
 
   .skill-icon {
